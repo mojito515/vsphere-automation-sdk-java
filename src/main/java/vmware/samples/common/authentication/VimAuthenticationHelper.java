@@ -20,6 +20,7 @@ import com.vmware.vim25.ManagedObjectReference;
 import com.vmware.vim25.ServiceContent;
 import com.vmware.vim25.VimPortType;
 import com.vmware.vim25.VimService;
+import vmware.samples.common.SslUtil;
 
 /**
  * Vim api helper class which provides methods for login/logout using
@@ -59,6 +60,9 @@ public class VimAuthenticationHelper {
      */
     public void loginByUsernameAndPassword(
         String server, String username, String password) {
+
+        SslUtil.trustAllHttpsCertificates();
+
         try {
             String vimSdkUrl = "https://" + server + VIM_PATH;
 
