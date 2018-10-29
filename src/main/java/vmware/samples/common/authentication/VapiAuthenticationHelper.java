@@ -69,7 +69,13 @@ public class VapiAuthenticationHelper {
                 this.stubFactory.createStub(Session.class, stubConfig);
 
         // Login and create a session
-        char[] sessionId = session.create();
+        char[] sessionId = new char[0];
+        try {
+            sessionId = session.create();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
 
         // Initialize a session security context from the generated session id
         SessionSecurityContext sessionSecurityContext =
