@@ -125,6 +125,7 @@ public class ListVMs extends SamplesAbstractBase {
          * 5. Cleanup any data created by the sample run, if cleanup=true
          * 6. Logout of the server
          */
+        Thread.sleep(10000);
         new ListVMs().execute(args);
     }
 }
