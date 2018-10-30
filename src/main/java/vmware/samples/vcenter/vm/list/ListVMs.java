@@ -16,6 +16,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import com.vmware.vcenter.VMTypes;
 import org.apache.commons.cli.Option;
 
 import com.vmware.vcenter.VM;
@@ -107,6 +108,8 @@ public class ListVMs extends SamplesAbstractBase {
         System.out.println("List of VMs");
         for (Summary vmSummary : vmList) {
             System.out.println(vmSummary);
+            VMTypes.Info info = vmService.get(vmSummary.getVm());
+            System.out.println(info);
         }
         System.out.println("----------------------------------------");
     }
